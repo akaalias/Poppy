@@ -10,8 +10,14 @@ import SwiftUI
 
 class Settings: ObservableObject {
     static let shared = Settings()
-
+    
     @AppStorage("isPinned") var isPinned = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage("lastURL") var lastURL = "" {
         didSet {
             objectWillChange.send()
         }
