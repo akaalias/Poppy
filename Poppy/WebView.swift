@@ -46,7 +46,6 @@ struct WebViewWithUrlBar: View {
                 toggleVisibilityToggle()
             }
             
-            
             WebView(webView: webViewStore.webView)
         }
     }
@@ -70,19 +69,11 @@ class WebViewStore: NSObject, ObservableObject {
 
 struct WebView: NSViewRepresentable {
     let webView: WKWebView
-    @State var loaded = false
     
     func makeNSView(context: Context) -> WKWebView {
         return webView
     }
     
     func updateNSView(_ nsView: WKWebView, context: Context) {
-        if !self.loaded {
-            nsView.setValue(false, forKey: "drawsBackground")
-        } else {
-            nsView.setValue(true, forKey: "drawsBackground")
-        }
-        
-        self.loaded = true
     }
 }
