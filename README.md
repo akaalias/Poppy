@@ -1,6 +1,8 @@
-## Poppy keeps your single most important website on top of all other windows.
+## 🎉 Poppy keeps your single most important website on top of all other windows.
 
-Poppy is a tiny, native macOS app that's especially useful when you are...
+Poppy is a free, tiny, native app for macOS Ventura. 
+
+It's incredibly useful for...
 
 ### ...Writing and Editing with ChatGPT
 
@@ -10,9 +12,9 @@ Always switching between ChatGPT and your working documents?
 
 Want to maximize screen space?
 
-Poppy can help!
-
 ![ChatGPT](./chatgpt.png)
+
+[🎁 Get Poppy!](https://github.com/akaalias/poppy/releases/latest/download/Poppy.dmg)
 
 ### ...Pair Programming Driver/Navigator-Style
 
@@ -22,10 +24,9 @@ Do you prefer working in your IDE full-width?
 
 Want to keep an eye on the backlog ticket?
 
-Poppy can help!
-
 ![Todoist](./todoist.png)
 
+[🎁 Get Poppy!](https://github.com/akaalias/poppy/releases/latest/download/Poppy.dmg)
 
 ## Works with all websites, pinning is optional
 
@@ -37,5 +38,5 @@ You got it!
 
 ![Load and Pin](./load-and-pin.png)
 
-
+[🎁 Get Poppy!](https://github.com/akaalias/poppy/releases/latest/download/Poppy.dmg)
 
