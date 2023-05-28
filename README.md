@@ -1,11 +1,27 @@
-## Poppy 
-A native macOS app for Driver/Navigator Pair Programming that keeps your task list on-top
+## Welcome to Poppy!
 
-![Load and Pin](./load-and-pin.png)
+Poppy keeps your single most important website, like ChatGPT or your current backlog ticket, on top of everything else.
+
+Poppy is especially useful when you are...
+
+### ...Writing and Editing with ChatGPT
+
+![ChatGPT](./chatgpt.png)
+
+### ...Pair Programming Driver/Navigator-Style
+
+Working on a giant shared display?
+
+Do you prefer working in your IDE full-width?
+
+Want to keep an eye on the backlog ticket?
+
+![Todoist](./todoist.png)
 
 ## Works with any website
 
-### For example: ChatGPT and Todoist
 
-![ChatGPT](./chatgpt.png)
-![Todoist](./todoist.png)
+![Load and Pin](./load-and-pin.png)
+
+
+
