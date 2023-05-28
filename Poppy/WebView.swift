@@ -29,9 +29,11 @@ struct WebViewWithUrlBar: View {
                         
                         AppNavigationPlaceholdersView()
                         
-                        TextField("Enter a URL", text: $state.urlInputString, onCommit: {
+                        TextField("Enter your URL", text: $state.urlInputString, onCommit: {
                             self.tryToLoadURLFromURLString()
                         })
+                        
+                        
                         .font(.body)
                         .textFieldStyle(.plain)
                         .foregroundColor(Color("URLBarText"))
@@ -65,8 +67,8 @@ struct WebViewWithUrlBar: View {
                     .padding(.top, 8)
                     .padding(.bottom, 8)
                     .transition(.opacity)
-                    .frame(height: hovering || webViewStore.loading ? 28 : 0)
-                    .offset(y: hovering  || webViewStore.loading ? 0 : -10)
+                    .frame(height: self.shouldShowURLBar() ? 28 : 0)
+                    .offset(y: self.shouldShowURLBar() ? 0 : -10)
                     .background(Color("URLBarColor"))
                     .animation(.easeOut(duration: 0.2))
                 })
@@ -123,8 +125,12 @@ struct WebViewWithUrlBar: View {
             webViewStore.loadUrl(state.lastURL)
             
         } else {
-            webViewStore.webView.loadHTMLString("", baseURL: URL(string: ""))
+            webViewStore.webView.loadHTMLString(DEFAULT_HTML_STRING, baseURL: URL(string: ""))
         }
+    }
+    
+    func shouldShowURLBar() -> Bool {
+        return hovering || webViewStore.loading || state.urlInputString.isEmpty
     }
     
     func hideWindowControls() {
@@ -197,3 +203,39 @@ struct WebView: NSViewRepresentable {
         }
     }
 }
+
+let DEFAULT_HTML_STRING = """
+
+<style>
+    * {
+        background-color: maroon;
+        color: white;
+        font-family: "Helvetica Neue";
+    }
+
+    .centered {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+    }
+    .content {
+        text-align: center;
+        padding: 20px;
+    }
+
+</style>
+
+<body>
+    <div class="centered">
+            <div class="content">
+                <h1>Welcome to Poppy!</h1>
+                <p>Keep your single most important bookmark on top of everything else.</p>
+            </div>
+        </div>
+</body>
+"""
