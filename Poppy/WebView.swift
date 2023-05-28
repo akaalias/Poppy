@@ -9,50 +9,37 @@ import SwiftUI
 import WebKit
 
 struct WebViewWithUrlBar: View {
+    @Environment(\.scenePhase) var scenePhase
     @StateObject private var webViewStore = WebViewStore()
-    @StateObject private var settings = Settings.shared
-    @State private var urlString = ""
-    @State private var isHovering = false
-    @State var hovering = false
+    @StateObject private var state = AppState.shared
+    
+    @State var hovering = true
     @State private var size: CGSize = .zero
     @State private var distanceOfMouseFromTopOfWindowFrame: CGFloat = 0.0
     
-    var mouseLocation: NSPoint { NSEvent.mouseLocation }
+    @State var mouseMonitor: Any?
     
     var body: some View {
         GeometryReader { geometry in
             WebView(webView: webViewStore.webView)
                 .ignoresSafeArea()
-                .background(.clear)
                 .safeAreaInset(edge: .top, content: {
                     HStack {
                         Spacer()
                         
-                        Circle()
-                            .fill(.gray.opacity(0.5))
-                            .frame(width: 12, height: 12)
-
-                        Circle()
-                            .fill(.gray.opacity(0.5))
-                            .frame(width: 12, height: 12)
-
-                        Circle()
-                            .fill(.gray.opacity(0.5))
-                            .frame(width: 12, height: 12)
-
-                        TextField("Enter a URL", text: $urlString, onCommit: {
-                            if !urlString.isEmpty {
-                                if  !urlString.hasPrefix("https://") {
-                                    self.urlString = "https://" + self.urlString
-                                }
-                                
-                                settings.lastURL = self.urlString
-                                webViewStore.loadUrl(urlString)
-                            }
+                        AppNavigationPlaceholdersView()
+                        
+                        TextField("Enter a URL", text: $state.urlInputString, onCommit: {
+                            self.tryToLoadURLFromURLString()
                         })
                         .font(.body)
                         .textFieldStyle(.plain)
                         .foregroundColor(Color("URLBarText"))
+                        
+                        if webViewStore.loading {
+                            ProgressView()
+                                .controlSize(.small)
+                        }
                         
                         Spacer()
                         
@@ -61,13 +48,13 @@ struct WebViewWithUrlBar: View {
                             .fixedSize()
                             .scaledToFit()
                             .frame(width: 12, height: 12)
-
+                        
                         Spacer()
-
-                        Image(systemName: settings.isPinned ? "pin.fill" : "pin")
+                        
+                        Image(systemName: state.isPinned ? "pin.fill" : "pin")
                             .foregroundColor(Color("PinColor"))
                             .onTapGesture {
-                                settings.isPinned.toggle()
+                                state.isPinned.toggle()
                             }
                             .fixedSize()
                             .scaledToFit()
@@ -77,33 +64,69 @@ struct WebViewWithUrlBar: View {
                     }
                     .padding(.top, 8)
                     .padding(.bottom, 8)
-                    .frame(height: hovering ? 28 : 0)
-                    .offset(y: hovering ? 0 : -10)
+                    .transition(.opacity)
+                    .frame(height: hovering || webViewStore.loading ? 28 : 0)
+                    .offset(y: hovering  || webViewStore.loading ? 0 : -10)
                     .background(Color("URLBarColor"))
                     .animation(.easeOut(duration: 0.2))
-                    .onChange(of: self.distanceOfMouseFromTopOfWindowFrame) { newValue in
-                        if newValue > 30 {
-                            hovering = false
-                            hideWindowControls()
-                        } else {
-                            hovering = true
-                            showWindowControls()
-                        }
-                    }
                 })
                 .onAppear {
-                    NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { event in
+                    mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { event in
                         self.distanceOfMouseFromTopOfWindowFrame = size.height - event.locationInWindow.y
                         return event
                     }
-                    size = geometry.size
+                    
+                    self.size = geometry.size
+                    state.urlInputString = state.lastURL
+                    
+                    tryToLoadURLFromURLString()
                     hideWindowControls()
-                    self.urlString = settings.lastURL
-                }.onChange(of: geometry.size) { newSize in
+                }
+                .onDisappear() {
+                    if let monitor = mouseMonitor {
+                        NSEvent.removeMonitor(monitor)
+                    }
+                }
+                .onChange(of: self.distanceOfMouseFromTopOfWindowFrame) { newValue in
+                    if newValue < 30 && newValue > 0 {
+                        hovering = true
+                    } else {
+                        hovering = false
+                    }
+                }
+                .onChange(of: geometry.size) { newSize in
                     size = newSize
+                }
+                .onChange(of: hovering) { newValue in
+                    if newValue {
+                        showWindowControls()
+                    } else {
+                        hideWindowControls()
+                    }
+                }
+                .onChange(of: state.lastURL) { newValue in
+                    tryToLoadURLFromURLString()
                 }
         }
     }
+    
+    func tryToLoadURLFromURLString() {
+        if !state.urlInputString.isEmpty {
+            if  !state.urlInputString.hasPrefix("https://") {
+                state.urlInputString = "https://" + state.urlInputString
+            }
+                        
+            if state.urlInputString != state.lastURL {
+                state.lastURL = state.urlInputString
+            }
+            
+            webViewStore.loadUrl(state.lastURL)
+            
+        } else {
+            webViewStore.webView.loadHTMLString("", baseURL: URL(string: ""))
+        }
+    }
+    
     func hideWindowControls() {
         NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
         NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = true
@@ -114,20 +137,34 @@ struct WebViewWithUrlBar: View {
         NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = false
         NSApp.mainWindow?.standardWindowButton(.miniaturizeButton)?.isHidden = false
     }
-
+    
     func toggleVisibilityToggle() {
         hovering.toggle()
     }
 }
 
-class WebViewStore: NSObject, ObservableObject {
-    let webView = WKWebView()
-    let loaded = false
+class WebViewStore: NSObject, ObservableObject, WKNavigationDelegate {
+    @Published var loading = false
+    
+    let webView: WKWebView
+    
+    override init() {
+        webView = WKWebView()
+        super.init()
+        
+        webView.navigationDelegate = self
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loading = false
+    }
     
     func loadUrl(_ urlString: String) {
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
             webView.load(request)
+            
+            self.loading = true
         }
     }
 }
@@ -136,10 +173,27 @@ struct WebView: NSViewRepresentable {
     let webView: WKWebView
     
     func makeNSView(context: Context) -> WKWebView {
+        webView.navigationDelegate = context.coordinator
         return webView
     }
     
     func updateNSView(_ nsView: WKWebView, context: Context) {
         nsView.setValue(false, forKey: "drawsBackground")
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(store: webView.navigationDelegate as? WebViewStore)
+    }
+    
+    class Coordinator: NSObject, WKNavigationDelegate {
+        private let store: WebViewStore?
+        
+        init(store: WebViewStore?) {
+            self.store = store
+        }
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            store?.loading = false
+        }
     }
 }

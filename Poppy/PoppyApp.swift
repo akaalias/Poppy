@@ -10,9 +10,15 @@ import SwiftUI
 @main
 struct PoppyApp: App {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject private var settings = Settings.shared
-        
+    @StateObject private var settings = AppState.shared
+    
     var body: some Scene {
+        
+        Settings {
+            SettingsTabsView()
+                .frame(width: 500, height: 200)
+        }
+        
         WindowGroup {
             ContentView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
