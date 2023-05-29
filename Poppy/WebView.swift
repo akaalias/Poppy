@@ -32,8 +32,6 @@ struct WebViewWithUrlBar: View {
                         TextField("Enter your URL", text: $state.urlInputString, onCommit: {
                             self.tryToLoadURLFromURLString()
                         })
-                        
-                        
                         .font(.body)
                         .textFieldStyle(.plain)
                         .foregroundColor(Color("URLBarText"))
@@ -45,24 +43,8 @@ struct WebViewWithUrlBar: View {
                         
                         Spacer()
                         
-                        Image(systemName: "line.3.horizontal")
-                            .foregroundColor(Color("PinColor"))
-                            .fixedSize()
-                            .scaledToFit()
-                            .frame(width: 12, height: 12)
-                        
-                        Spacer()
-                        
-                        Image(systemName: state.isPinned ? "pin.fill" : "pin")
-                            .foregroundColor(Color("PinColor"))
-                            .onTapGesture {
-                                state.isPinned.toggle()
-                            }
-                            .fixedSize()
-                            .scaledToFit()
-                            .frame(width: 12, height: 12)
-                        
-                        Spacer()
+                        URLBarNavigationItems()
+
                     }
                     .padding(.top, 8)
                     .padding(.bottom, 8)
