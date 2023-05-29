@@ -40,6 +40,17 @@ You got it!
 
 [🎁 Get Poppy!](https://github.com/akaalias/poppy/releases/latest/download/Poppy.dmg)
 
+## Stash and Un-stash
+
+Need to briefly hide Poppy?
+
+No problemo!
+
+![Stash](./stash.png)
+
+![Un-Stash](./unstash.png)
+
+
 ---
 
 Made with love and relased under the [GNU General Public License v3.0](https://github.com/akaalias/Poppy/blob/main/LICENSE) by [Alexis Rondeau](https://alexisrondeau.me).
