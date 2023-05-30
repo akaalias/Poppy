@@ -13,15 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let state = AppState.shared
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        state.isTucked = false
+
         if let window = NSApplication.shared.windows.first {
             // Starting out with the examples from https://github.com/lukakerr/NSWindowStyles/
             window.titleVisibility = .hidden
             window.titlebarAppearsTransparent = true
             window.isMovableByWindowBackground = true
-            window.hasShadow = false
 
-            if state.isTucked {
-                state.isTucked = false
+            if state.isPinned {
+                window.level = NSWindow.Level.floating
             }
         }
     }

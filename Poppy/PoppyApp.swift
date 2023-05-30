@@ -22,7 +22,7 @@ struct PoppyApp: App {
         
         WindowGroup {
             if !state.isTucked {
-                ContentView()
+                WebViewWithUrlBar()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .ignoresSafeArea()
             } else {

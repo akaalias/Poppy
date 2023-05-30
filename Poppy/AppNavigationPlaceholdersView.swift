@@ -22,6 +22,7 @@ struct AppNavigationPlaceholdersView: View {
                 .fill(.gray.opacity(0.5))
                 .frame(width: 12, height: 12)
         }
+        .offset(y: -2)
     }
 }
 

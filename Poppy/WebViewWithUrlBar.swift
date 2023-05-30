@@ -12,86 +12,66 @@ struct WebViewWithUrlBar: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var webViewStore = WebViewStore()
     @StateObject private var state = AppState.shared
-    
-    @State var hovering = true
-    @State private var size: CGSize = .zero
-    @State private var distanceOfMouseFromTopOfWindowFrame: CGFloat = 0.0
-    
-    @State var mouseMonitor: Any?
+    @State var hovering = false
     
     var body: some View {
-        GeometryReader { geometry in
-            WebView(webView: webViewStore.webView)
-                .ignoresSafeArea()
-                .safeAreaInset(edge: .top, content: {
-                    HStack {
-                        Spacer()
-                        
-                        AppNavigationPlaceholdersView()
-                        
-                        TextField("Enter your URL", text: $state.urlInputString, onCommit: {
-                            self.tryToLoadURLFromURLString()
-                        })
-                        .font(.body)
-                        .textFieldStyle(.plain)
-                        .foregroundColor(Color("URLBarText"))
-                        
-                        if webViewStore.loading {
-                            ProgressView()
-                                .controlSize(.small)
-                        }
-                        
-                        Spacer()
-                        
-                        URLBarNavigationItems()
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    
+                    AppNavigationPlaceholdersView()
+                    
+                    TextField("Enter your URL", text: $state.urlInputString, onCommit: {
+                        self.tryToLoadURLFromURLString()
+                    })
+                    .font(.body)
+                    .textFieldStyle(.plain)
+                    .foregroundColor(Color("URLBarText"))
+                    .opacity(self.hovering ? 1 : 0.5)
+                    .transition(.opacity)
+                    .animation(.easeOut)
+                    
+                    if webViewStore.loading {
+                        ProgressView()
+                            .controlSize(.small)
+                            .opacity(self.hovering ? 1 : 0.5)
+                            .transition(.opacity)
+                            .animation(.easeOut)
 
                     }
-                    .padding(.top, 8)
-                    .padding(.bottom, 8)
-                    .transition(.opacity)
-                    .frame(height: self.shouldShowURLBar() ? 28 : 0)
-                    .offset(y: self.shouldShowURLBar() ? 0 : -10)
-                    .background(Color("URLBarColor"))
-                    .animation(.easeOut(duration: 0.2))
+                    
+                    Spacer()
+                    
+                    URLBarNavigationItems()
+                        .opacity(self.hovering ? 1 : 0.5)
+                        .transition(.opacity)
+                        .animation(.easeOut)
+
+                }
+                .padding(.top, 8)
+                .padding(.bottom, 8)
+                .background(Color("URLBarColor"))
+                .onHover(perform: { hover in
+                    self.hovering = hover
                 })
-                .onAppear {
-                    mouseMonitor = NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { event in
-                        self.distanceOfMouseFromTopOfWindowFrame = size.height - event.locationInWindow.y
-                        return event
-                    }
-                    
-                    self.size = geometry.size
-                    state.urlInputString = state.lastURL
-                    
-                    tryToLoadURLFromURLString()
+                
+                WebView(webView: webViewStore.webView)
+            }
+            .onAppear {
+                state.urlInputString = state.lastURL
+                tryToLoadURLFromURLString()
+                hideWindowControls()
+            }
+            .onChange(of: hovering) { newValue in
+                if newValue {
+                    showWindowControls()
+                } else {
                     hideWindowControls()
                 }
-                .onDisappear() {
-                    if let monitor = mouseMonitor {
-                        NSEvent.removeMonitor(monitor)
-                    }
-                }
-                .onChange(of: self.distanceOfMouseFromTopOfWindowFrame) { newValue in
-                    if newValue < 30 && newValue > 0 {
-                        hovering = true
-                    } else {
-                        hovering = false
-                    }
-                }
-                .onChange(of: geometry.size) { newSize in
-                    size = newSize
-                }
-                .onChange(of: hovering) { newValue in
-                    if newValue {
-                        showWindowControls()
-                    } else {
-                        hideWindowControls()
-                    }
-                }
-                .onChange(of: state.lastURL) { newValue in
-                    tryToLoadURLFromURLString()
-                }
-        }
+            }
+            .onChange(of: state.lastURL) { newValue in
+                tryToLoadURLFromURLString()
+            }
     }
     
     func tryToLoadURLFromURLString() {
@@ -190,9 +170,11 @@ let DEFAULT_HTML_STRING = """
 
 <style>
     * {
-        background-color: maroon;
+        background-color: blue;
         color: white;
         font-family: "Helvetica Neue";
+        margin: 0px;
+        padding: 0px;
     }
 
     .centered {
