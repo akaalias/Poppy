@@ -21,7 +21,7 @@ struct WebViewWithUrlBar: View {
                     
                     AppNavigationPlaceholdersView()
                     
-                    TextField("Enter your URL", text: $state.urlInputString, onCommit: {
+                    TextField("https://", text: $state.urlInputString, onCommit: {
                         self.tryToLoadURLFromURLString()
                     })
                     .font(.body)
@@ -75,7 +75,7 @@ struct WebViewWithUrlBar: View {
     }
     
     func tryToLoadURLFromURLString() {
-        if !state.urlInputString.isEmpty {
+        if !state.urlInputString.isEmpty &&  !(state.urlInputString == "https://"){
             if  !state.urlInputString.hasPrefix("https://") {
                 state.urlInputString = "https://" + state.urlInputString
             }
@@ -170,7 +170,7 @@ let DEFAULT_HTML_STRING = """
 
 <style>
     * {
-        background-color: blue;
+        background-color: maroon;
         color: white;
         font-family: "Helvetica Neue";
         margin: 0px;
@@ -192,9 +192,33 @@ let DEFAULT_HTML_STRING = """
         padding: 20px;
     }
 
+    .top {
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        z-index: 100;
+        text-align: center;
+    }
+
+    .highlight {
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+    
+    .big {
+        font-size: 28px;
+    }
+
 </style>
 
 <body>
+    <div class="top">
+        <p>
+            <span class="big">↑</span>
+            <div class="highlight">Enter your URL here!</div>
+        </p>
+    </div>
     <div class="centered">
             <div class="content">
                 <h1>Welcome to Poppy!</h1>

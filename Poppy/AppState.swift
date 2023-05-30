@@ -17,7 +17,7 @@ enum SettingsKeys: String, CaseIterable{
 class AppState: ObservableObject {
     static let shared = AppState()
     static let DEFAULT_IS_PINNED_STATE = true
-    static let DEFAULT_LAST_URL_STATE = ""
+    static let DEFAULT_LAST_URL_STATE = "https://"
     static let DEFAULT_IS_TUCKED_STATE = false
 
     @Published var urlInputString = AppState.DEFAULT_LAST_URL_STATE
