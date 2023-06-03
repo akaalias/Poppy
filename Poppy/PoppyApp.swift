@@ -24,25 +24,25 @@ struct PoppyApp: App {
             if !state.isTucked {
                 WebViewWithUrlBar()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
+                    .background(Color("URLBarColor"))
             } else {
                 TuckedView()
-                    .offset(x: -12, y: -14)
-                    .onTapGesture {
-                        state.isTucked = false
-                    }
+                    .frame(width: 100, height: 100)
+                    .background(Color("URLBarColor"))
             }
         }
         .onChange(of: state.isPinned) { newValue in
-            bringToFront()
+            decideWindowLevel()
         }
         .onChange(of: state.isTucked) { newValue in
             changeTuckedState()
         }
-        .windowStyle(.hiddenTitleBar)
+        .windowStyle(.automatic)
+        .windowToolbarStyle(.unifiedCompact)
+        
     }
     
-    func bringToFront() {
+    func decideWindowLevel() {
         if let window = NSApplication.shared.windows.first {
             if state.isPinned {
                 window.level = .floating
@@ -55,30 +55,28 @@ struct PoppyApp: App {
     func changeTuckedState() {
         if let window = NSApplication.shared.windows.first {
             if state.isTucked {
-                window.setFrame(NSRect(x: (NSScreen.main?.frame.width ?? 500) - 25,
+                window.setFrame(NSRect(x: (NSScreen.main?.frame.width ?? 500) - 50,
                                        y: (NSScreen.main?.frame.height ?? 500) / 2,
-                                       width: 50,
-                                       height: 50),
+                                       width: 100,
+                                       height: 100),
                                 display: true)
 
                 window.level = NSWindow.Level.floating
-
-                window.backgroundColor = NSColor(Color("URLBarColor"))
-
                 window.standardWindowButton(.zoomButton)?.isHidden = true
                 window.standardWindowButton(.closeButton)?.isHidden = true
                 window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-                window.isMovableByWindowBackground = false
-                window.isMovable = false
-                window.styleMask.remove(.resizable)
 
             } else {
                 // Reset to default
-                window.setFrame(NSRect(x: (NSScreen.main?.frame.width ?? 500) - 400,
+                window.setFrame(NSRect(x: (NSScreen.main?.frame.width ?? 500) - (NSScreen.main?.frame.width ?? 500) / 2,
                                        y: (NSScreen.main?.frame.height ?? 500),
-                                       width: 400,
+                                       width: (NSScreen.main?.frame.width ?? 500) / 2,
                                        height: (NSScreen.main?.frame.height ?? 500)),
                                 display: true)
+
+                window.standardWindowButton(.zoomButton)?.isHidden = false
+                window.standardWindowButton(.closeButton)?.isHidden = false
+                window.standardWindowButton(.miniaturizeButton)?.isHidden = false
                 window.isMovable = true
                 window.isMovableByWindowBackground = true
                 window.styleMask.insert(.resizable)

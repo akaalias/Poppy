@@ -15,63 +15,55 @@ struct WebViewWithUrlBar: View {
     @State var hovering = false
     
     var body: some View {
-            VStack(spacing: 0) {
-                HStack {
-                    Spacer()
-                    
-                    AppNavigationPlaceholdersView()
-                    
-                    TextField("https://", text: $state.urlInputString, onCommit: {
-                        self.tryToLoadURLFromURLString()
-                    })
-                    .font(.body)
-                    .textFieldStyle(.plain)
-                    .foregroundColor(Color("URLBarText"))
-                    .opacity(self.hovering ? 1 : 0.5)
-                    .transition(.opacity)
-                    .animation(.easeOut)
-                    
-                    if webViewStore.loading {
-                        ProgressView()
-                            .controlSize(.small)
-                            .opacity(self.hovering ? 1 : 0.5)
-                            .transition(.opacity)
-                            .animation(.easeOut)
-
-                    }
-                    
-                    Spacer()
-                    
-                    URLBarNavigationItems()
-                        .opacity(self.hovering ? 1 : 0.5)
-                        .transition(.opacity)
-                        .animation(.easeOut)
-
-                }
-                .padding(.top, 8)
-                .padding(.bottom, 8)
-                .background(Color("URLBarColor"))
-                .onHover(perform: { hover in
-                    self.hovering = hover
+        WebView(webView: webViewStore.webView)
+        .onAppear {
+            state.urlInputString = state.lastURL
+            tryToLoadURLFromURLString()
+        }
+        .onChange(of: state.lastURL) { newValue in
+            tryToLoadURLFromURLString()
+        }
+        .navigationTitle("")
+        .toolbar {
+            ToolbarItemGroup(placement: .navigation, content: {
+                TextField("https://", text: $state.urlInputString, onCommit: {
+                    self.tryToLoadURLFromURLString()
                 })
+                .font(.body)
+                .textFieldStyle(.squareBorder)
+                .foregroundColor(Color("URLBarText"))
+                .frame(width: 200)
                 
-                WebView(webView: webViewStore.webView)
-            }
-            .onAppear {
-                state.urlInputString = state.lastURL
-                tryToLoadURLFromURLString()
-                hideWindowControls()
-            }
-            .onChange(of: hovering) { newValue in
-                if newValue {
-                    showWindowControls()
-                } else {
-                    hideWindowControls()
+                if webViewStore.loading {
+                    ProgressView()
+                        .controlSize(.small)
                 }
-            }
-            .onChange(of: state.lastURL) { newValue in
-                tryToLoadURLFromURLString()
-            }
+            })
+            
+            ToolbarItemGroup(placement: .automatic, content: {
+                Image(systemName: state.isPinned ? "pin.fill" : "pin")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 12, height: 12)
+                    .foregroundColor(Color("PinColor"))
+                    .onTapGesture {
+                        state.isPinned.toggle()
+                    }
+
+                Spacer()
+                
+                Image(systemName: "chevron.forward")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 12, height: 12)
+                    .foregroundColor(Color("PinColor"))
+                    .onTapGesture {
+                        state.isTucked = true
+                    }
+                
+                Spacer()            })
+        }
+        
     }
     
     func tryToLoadURLFromURLString() {
@@ -79,7 +71,7 @@ struct WebViewWithUrlBar: View {
             if  !state.urlInputString.hasPrefix("https://") {
                 state.urlInputString = "https://" + state.urlInputString
             }
-                        
+            
             if state.urlInputString != state.lastURL {
                 state.lastURL = state.urlInputString
             }
@@ -89,25 +81,6 @@ struct WebViewWithUrlBar: View {
         } else {
             webViewStore.webView.loadHTMLString(DEFAULT_HTML_STRING, baseURL: URL(string: ""))
         }
-    }
-    
-    func shouldShowURLBar() -> Bool {
-        return hovering || webViewStore.loading || state.urlInputString.isEmpty
-    }
-    
-    func hideWindowControls() {
-        NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
-        NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = true
-        NSApp.mainWindow?.standardWindowButton(.miniaturizeButton)?.isHidden = true
-    }
-    func showWindowControls() {
-        NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = false
-        NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = false
-        NSApp.mainWindow?.standardWindowButton(.miniaturizeButton)?.isHidden = false
-    }
-    
-    func toggleVisibilityToggle() {
-        hovering.toggle()
     }
 }
 
