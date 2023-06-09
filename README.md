@@ -56,9 +56,8 @@ No problemo!
 
 - [x] ... MVP test
 - [x] Add automatic updates
-- [ ] Add global hotkey for show/hide
-- [ ] Refactor into smaller files
-- [ ] ...
+- [x] Add global hotkey for show/hide
+  - [ ] ... Stress-test hotkey feature
 
 ### Releases
 
