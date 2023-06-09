@@ -2,4 +2,4 @@
 
 set -e
 
-~/Workshop/Sparkle-Tools/bin/generate_appcast ./Archive/
+~/Workshop/Sparkle-Tools/bin/generate_appcast ../Archive/
