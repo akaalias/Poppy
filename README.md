@@ -51,6 +51,15 @@ No problemo!
 ![Un-Stash](./unstash.png)
 
 
+### Roadmap
+
+- [x] ... MVP test
+- [ ] Add automatic updates
+- [ ] Add global hotkey for show/hide
+- [ ] Refactor into smaller files
+- [ ] ...
+
 ---
 
 Made with love and relased under the [GNU General Public License v3.0](https://github.com/akaalias/Poppy/blob/main/LICENSE) by [Alexis Rondeau](https://alexisrondeau.me).
+
