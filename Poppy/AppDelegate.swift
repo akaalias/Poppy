@@ -13,8 +13,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let state = AppState.shared
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        state.isTucked = false
-
         if let window = NSApplication.shared.windows.first {
             if state.isPinned {
                 window.level = NSWindow.Level.floating

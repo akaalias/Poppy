@@ -10,6 +10,10 @@
 		5624845C2A2356D800ED5829 /* SettingsTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845B2A2356D800ED5829 /* SettingsTabsView.swift */; };
 		5624845E2A23589A00ED5829 /* DefaultURLSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */; };
 		562484602A23594F00ED5829 /* ResetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845F2A23594F00ED5829 /* ResetSettingsView.swift */; };
+		565CD6C12A330DBB00925E60 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 565CD6C02A330DBB00925E60 /* KeyboardShortcuts */; };
+		565CD6C32A330DCB00925E60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CD6C22A330DCB00925E60 /* Constants.swift */; };
+		565CD6C52A330EA500925E60 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CD6C42A330EA500925E60 /* Updater.swift */; };
+		565CD6C72A33110B00925E60 /* HotkeySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565CD6C62A33110B00925E60 /* HotkeySettingsView.swift */; };
 		5678E2A32A2227A1002194C4 /* PoppyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5678E2A22A2227A1002194C4 /* PoppyApp.swift */; };
 		5678E2A72A2227A2002194C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5678E2A62A2227A2002194C4 /* Assets.xcassets */; };
 		5678E2AA2A2227A2002194C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5678E2A92A2227A2002194C4 /* Preview Assets.xcassets */; };
@@ -19,13 +23,15 @@
 		5681EF502A3309BB00C060A0 /* AboutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681EF4F2A3309BB00C060A0 /* AboutSettingsView.swift */; };
 		56D1ACF02A2B96BB00F5D939 /* WebViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D1ACEF2A2B96BB00F5D939 /* WebViewStore.swift */; };
 		56E05EFE2A250D2600753EA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E05EFD2A250D2600753EA3 /* AppDelegate.swift */; };
-		56E05F002A25107800753EA3 /* TuckedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E05EFF2A25107800753EA3 /* TuckedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5624845B2A2356D800ED5829 /* SettingsTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabsView.swift; sourceTree = "<group>"; };
 		5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultURLSettingsView.swift; sourceTree = "<group>"; };
 		5624845F2A23594F00ED5829 /* ResetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsView.swift; sourceTree = "<group>"; };
+		565CD6C22A330DCB00925E60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		565CD6C42A330EA500925E60 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		565CD6C62A33110B00925E60 /* HotkeySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeySettingsView.swift; sourceTree = "<group>"; };
 		5678E29F2A2227A1002194C4 /* Poppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5678E2A22A2227A1002194C4 /* PoppyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoppyApp.swift; sourceTree = "<group>"; };
 		5678E2A62A2227A2002194C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,7 +43,6 @@
 		5681EF4F2A3309BB00C060A0 /* AboutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettingsView.swift; sourceTree = "<group>"; };
 		56D1ACEF2A2B96BB00F5D939 /* WebViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewStore.swift; sourceTree = "<group>"; };
 		56E05EFD2A250D2600753EA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56E05EFF2A25107800753EA3 /* TuckedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5681EF4D2A33009E00C060A0 /* Sparkle in Frameworks */,
+				565CD6C12A330DBB00925E60 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,18 +79,20 @@
 			children = (
 				5681EF4E2A3300E300C060A0 /* Info.plist */,
 				5678E2A22A2227A1002194C4 /* PoppyApp.swift */,
+				565CD6C42A330EA500925E60 /* Updater.swift */,
 				5678E2B12A222D0C002194C4 /* WebViewWithUrlBar.swift */,
 				56D1ACEF2A2B96BB00F5D939 /* WebViewStore.swift */,
-				56E05EFF2A25107800753EA3 /* TuckedView.swift */,
 				56E05EFD2A250D2600753EA3 /* AppDelegate.swift */,
 				5624845B2A2356D800ED5829 /* SettingsTabsView.swift */,
 				5624845F2A23594F00ED5829 /* ResetSettingsView.swift */,
 				5678E2B32A223492002194C4 /* AppState.swift */,
 				5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */,
+				565CD6C62A33110B00925E60 /* HotkeySettingsView.swift */,
 				5681EF4F2A3309BB00C060A0 /* AboutSettingsView.swift */,
 				5678E2A62A2227A2002194C4 /* Assets.xcassets */,
 				5678E2AB2A2227A2002194C4 /* Poppy.entitlements */,
 				5678E2A82A2227A2002194C4 /* Preview Content */,
+				565CD6C22A330DCB00925E60 /* Constants.swift */,
 			);
 			path = Poppy;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			name = Poppy;
 			packageProductDependencies = (
 				5681EF4C2A33009E00C060A0 /* Sparkle */,
+				565CD6C02A330DBB00925E60 /* KeyboardShortcuts */,
 			);
 			productName = Poppy;
 			productReference = 5678E29F2A2227A1002194C4 /* Poppy.app */;
@@ -146,6 +155,7 @@
 			mainGroup = 5678E2962A2227A1002194C4;
 			packageReferences = (
 				5681EF4B2A33009E00C060A0 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				565CD6BF2A330DBB00925E60 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 5678E2A02A2227A1002194C4 /* Products */;
 			projectDirPath = "";
@@ -174,11 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5624845C2A2356D800ED5829 /* SettingsTabsView.swift in Sources */,
+				565CD6C32A330DCB00925E60 /* Constants.swift in Sources */,
 				5678E2B22A222D0C002194C4 /* WebViewWithUrlBar.swift in Sources */,
 				5678E2B42A223492002194C4 /* AppState.swift in Sources */,
 				5678E2A32A2227A1002194C4 /* PoppyApp.swift in Sources */,
+				565CD6C52A330EA500925E60 /* Updater.swift in Sources */,
+				565CD6C72A33110B00925E60 /* HotkeySettingsView.swift in Sources */,
 				562484602A23594F00ED5829 /* ResetSettingsView.swift in Sources */,
-				56E05F002A25107800753EA3 /* TuckedView.swift in Sources */,
 				5624845E2A23589A00ED5829 /* DefaultURLSettingsView.swift in Sources */,
 				56E05EFE2A250D2600753EA3 /* AppDelegate.swift in Sources */,
 				56D1ACF02A2B96BB00F5D939 /* WebViewStore.swift in Sources */,
@@ -310,7 +322,7 @@
 				CODE_SIGN_ENTITLEMENTS = Poppy/Poppy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.2.6;
 				DEVELOPMENT_ASSET_PATHS = "\"Poppy/Preview Content\"";
 				DEVELOPMENT_TEAM = HKQARCV8QZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -324,7 +336,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rondeau.Poppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -340,7 +352,7 @@
 				CODE_SIGN_ENTITLEMENTS = Poppy/Poppy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.5;
+				CURRENT_PROJECT_VERSION = 1.2.6;
 				DEVELOPMENT_ASSET_PATHS = "\"Poppy/Preview Content\"";
 				DEVELOPMENT_TEAM = HKQARCV8QZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -354,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rondeau.Poppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -386,6 +398,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		565CD6BF2A330DBB00925E60 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		5681EF4B2A33009E00C060A0 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -397,6 +417,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		565CD6C02A330DBB00925E60 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CD6BF2A330DBB00925E60 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
 		5681EF4C2A33009E00C060A0 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5681EF4B2A33009E00C060A0 /* XCRemoteSwiftPackageReference "Sparkle" */;
