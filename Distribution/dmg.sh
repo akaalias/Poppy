@@ -6,5 +6,5 @@ echo -n "What's the version number: "
 read VERSION
 
 # appdmg ./appdmg.json ./Archive/SparkleUpdateTest-$VERSION.dmg
-rm Poppy.dmg
+# rm Poppy.dmg
 hdiutil create -volname Poppy -srcfolder ./Poppy.app -ov -format UDZO Poppy-$VERSION.dmg && rm -Rf ./Poppy.app
