@@ -33,7 +33,7 @@ class WebViewStore: NSObject, ObservableObject, WKNavigationDelegate {
             self.loading = true
             
             let userJS = """
-// document.body.style = "background-color: red !important;";
+// Verify JS can be executed: document.body.style = "background-color: blue !important;";
 """
             let jsScript = WKUserScript(source: userJS, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
             webView.configuration.userContentController.addUserScript(jsScript)

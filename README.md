@@ -50,16 +50,19 @@ No problemo!
 
 ![Un-Stash](./unstash.png)
 
+## Development Notes
 
 ### Roadmap
 
 - [x] ... MVP test
-- [ ] Add automatic updates
+- [x] Add automatic updates
 - [ ] Add global hotkey for show/hide
 - [ ] Refactor into smaller files
 - [ ] ...
 
----
+### Releases
 
+- See [${ROOT}/Distribution/README.md](../Distribution/README.md) for details
+
+### Appendix
 Made with love and relased under the [GNU General Public License v3.0](https://github.com/akaalias/Poppy/blob/main/LICENSE) by [Alexis Rondeau](https://alexisrondeau.me).
-
