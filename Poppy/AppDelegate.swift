@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if state.isPinned {
                 window.level = NSWindow.Level.floating
             }
+            state.windowFrame = window.frame
         }
     }
     

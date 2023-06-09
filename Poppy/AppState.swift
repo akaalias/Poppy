@@ -20,11 +20,22 @@ class AppState: ObservableObject {
     static let DEFAULT_LAST_URL_STATE = "https://"
     
     @Published var urlInputString = AppState.DEFAULT_LAST_URL_STATE
+    @Published var shouldBeVisible = true
+    @Published var windowFrame: NSRect?
     
     init() {
-        KeyboardShortcuts.onKeyUp(for: .togglePinning) { [self] in
+        KeyboardShortcuts.onKeyUp(for: .togglePinningShortcut) { [self] in
             isPinned.toggle()
         }
+        
+        KeyboardShortcuts.onKeyDown(for: .toggleAlphaShortcut) { [self] in
+            shouldBeVisible.toggle()
+        }
+        
+        KeyboardShortcuts.onKeyUp(for: .toggleAlphaShortcut) { [self] in
+            shouldBeVisible.toggle()
+        }
+
     }
     
     @AppStorage(SettingsKeys.isPinned.rawValue) var isPinned = AppState.DEFAULT_IS_PINNED_STATE {

@@ -9,5 +9,6 @@ import Foundation
 import KeyboardShortcuts
 
 extension KeyboardShortcuts.Name {
-    static let togglePinning = Self("togglePinning")
+    static let togglePinningShortcut = Self("togglePinningShortcut", default: Shortcut(.p, modifiers: [.command, .control, .option]))
+    static let toggleAlphaShortcut = Self("toggleAlphaShortcut", default: Shortcut(.o, modifiers: [.command, .control, .option]))
 }

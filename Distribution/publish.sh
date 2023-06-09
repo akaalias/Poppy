@@ -17,6 +17,11 @@ echo ""
 ./dmg.sh
 
 echo ""
+echo "Write Release Notes:"
+echo ""
+./write_release_notes.sh
+
+echo ""
 echo "Generating Appcast:"
 echo ""
 ./generate_appcast.sh

@@ -36,10 +36,10 @@ struct WebViewWithUrlBar: View {
                 })
                 
                 ToolbarItemGroup(placement: .automatic, content: {
-                    Image(systemName: state.isPinned ? "pin.fill" : "pin")
+                    Image(systemName: state.isPinned ? "circlebadge.fill" : "circlebadge")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 12, height: 12)
+                        .frame(width: 8, height: 8)
                         .foregroundColor(Color("PinColor"))
                         .onTapGesture {
                             state.isPinned.toggle()

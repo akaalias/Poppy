@@ -11,7 +11,14 @@ import KeyboardShortcuts
 struct HotkeySettingsView: View {
     var body: some View {
         VStack {
-            KeyboardShortcuts.Recorder("", name: .togglePinning)
+            
+            Text("Toggle Window Pinning")
+            KeyboardShortcuts.Recorder("", name: .togglePinningShortcut)
+
+            Divider()
+
+            Text("Quick Alpha")
+            KeyboardShortcuts.Recorder("", name: .toggleAlphaShortcut)
         }
     }
 }
