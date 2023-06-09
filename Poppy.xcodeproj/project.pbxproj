@@ -10,7 +10,6 @@
 		5624845C2A2356D800ED5829 /* SettingsTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845B2A2356D800ED5829 /* SettingsTabsView.swift */; };
 		5624845E2A23589A00ED5829 /* DefaultURLSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */; };
 		562484602A23594F00ED5829 /* ResetSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624845F2A23594F00ED5829 /* ResetSettingsView.swift */; };
-		562484642A23629700ED5829 /* AppNavigationPlaceholdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562484632A23629700ED5829 /* AppNavigationPlaceholdersView.swift */; };
 		5678E2A32A2227A1002194C4 /* PoppyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5678E2A22A2227A1002194C4 /* PoppyApp.swift */; };
 		5678E2A72A2227A2002194C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5678E2A62A2227A2002194C4 /* Assets.xcassets */; };
 		5678E2AA2A2227A2002194C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5678E2A92A2227A2002194C4 /* Preview Assets.xcassets */; };
@@ -26,7 +25,6 @@
 		5624845B2A2356D800ED5829 /* SettingsTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabsView.swift; sourceTree = "<group>"; };
 		5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultURLSettingsView.swift; sourceTree = "<group>"; };
 		5624845F2A23594F00ED5829 /* ResetSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsView.swift; sourceTree = "<group>"; };
-		562484632A23629700ED5829 /* AppNavigationPlaceholdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationPlaceholdersView.swift; sourceTree = "<group>"; };
 		5678E29F2A2227A1002194C4 /* Poppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5678E2A22A2227A1002194C4 /* PoppyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoppyApp.swift; sourceTree = "<group>"; };
 		5678E2A62A2227A2002194C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				5624845F2A23594F00ED5829 /* ResetSettingsView.swift */,
 				5678E2B32A223492002194C4 /* AppState.swift */,
 				5624845D2A23589A00ED5829 /* DefaultURLSettingsView.swift */,
-				562484632A23629700ED5829 /* AppNavigationPlaceholdersView.swift */,
 				5678E2A62A2227A2002194C4 /* Assets.xcassets */,
 				5678E2AB2A2227A2002194C4 /* Poppy.entitlements */,
 				5678E2A82A2227A2002194C4 /* Preview Content */,
@@ -181,7 +178,6 @@
 				56E05F002A25107800753EA3 /* TuckedView.swift in Sources */,
 				5624845E2A23589A00ED5829 /* DefaultURLSettingsView.swift in Sources */,
 				56E05EFE2A250D2600753EA3 /* AppDelegate.swift in Sources */,
-				562484642A23629700ED5829 /* AppNavigationPlaceholdersView.swift in Sources */,
 				56D1ACF02A2B96BB00F5D939 /* WebViewStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +306,7 @@
 				CODE_SIGN_ENTITLEMENTS = Poppy/Poppy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1.2.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Poppy/Preview Content\"";
 				DEVELOPMENT_TEAM = HKQARCV8QZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -324,7 +320,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rondeau.Poppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -340,7 +336,7 @@
 				CODE_SIGN_ENTITLEMENTS = Poppy/Poppy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.2.1;
+				CURRENT_PROJECT_VERSION = 1.2.2;
 				DEVELOPMENT_ASSET_PATHS = "\"Poppy/Preview Content\"";
 				DEVELOPMENT_TEAM = HKQARCV8QZ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -354,7 +350,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rondeau.Poppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
