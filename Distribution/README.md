@@ -1,9 +1,18 @@
 ## Publishing Automatic Updates
 
-- Save latest Poppy.app into this folder
+### In XCode
+- Make code changes
+- Update release and build number
+- Create Product Archive
+- Distribute App using Developer ID
+- Export signed Poppy.app into /Distribution
+
+### In Terminal
 
 ```sh
-./publish.sh
+$ cd {ROOT}/Distribution
+$ ./publish.sh
 ```
 
-- Create release to make sure people who download it from releases have the latest version right away
+### On Github
+- Create new release to make sure people who download it from releases have the latest version right away
