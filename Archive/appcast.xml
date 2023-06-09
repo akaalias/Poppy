@@ -3,6 +3,20 @@
     <channel>
         <title>Poppy</title>
         <item>
+            <title>1.2.6</title>
+            <pubDate>Fri, 09 Jun 2023 10:23:59 +0200</pubDate>
+            <sparkle:version>1.2.6</sparkle:version>
+            <sparkle:shortVersionString>1.2.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy-1.2.5.dmg" length="1462704" type="application/octet-stream" sparkle:edSignature="IvuL6yWOlPP/Sa9iLA1eGSE4R35qHt68pzvbhxji4RmSdDG+LHtagDv4c92EUDrsiAF2G7Ayb84kG0kFrXpRCg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.6-1.2.4.delta" sparkle:deltaFrom="1.2.4" length="169350" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="/6cgNNDt9W1Xg9VQPVf1zXU98tu6VAu572pzh4kOYUcvknu+km/V/9305QLraCGkrwgyW8PjWpFITvBqqzcxCw=="/>
+                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.6-1.2.3.delta" sparkle:deltaFrom="1.2.3" length="172550" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="EoCrShBQMj8ZHS7bN4R274M7+SRq6lzFMEcLspr0wVCgm/CzksA/XSS5brsDzoukWezag82ZcDQzuQN2geUwBw=="/>
+                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.6-1.2.1.delta" sparkle:deltaFrom="1.2.1" length="172026" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="uMjrE6RqUR21ozXxUXOMcM8J+JfJppnBaJoiteJIm25iWpMvMLfXuDk/QG1S554ryyF0WNt3Do+wCDTrl0hBDg=="/>
+                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.6-1.2.0.delta" sparkle:deltaFrom="1.2.0" length="172738" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="pZl6vpZexpxe+9pTEqWXDBgtqdlJay44AnNbTK5IZizFJND9HwtBgSYiV74kZqdf1cM3Li18Txhi3ltEMARWCw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.2.5</title>
             <pubDate>Fri, 09 Jun 2023 09:29:42 +0200</pubDate>
             <sparkle:version>1.2.5</sparkle:version>
@@ -27,18 +41,6 @@
                 <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.4-1.2.3.delta" sparkle:deltaFrom="1.2.3" length="30226" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="bCV5dbaGiqpJxL1X/trk6h6hu9J6ZNs+nOToyFbeiowAm2eQhecGaGDgxZ1mH9L/N+X/tQoE54TTGbuWX7rHDw=="/>
                 <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.4-1.2.1.delta" sparkle:deltaFrom="1.2.1" length="29454" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="l5sHGYESZVBNcm+eGPlZFWCuPTjXYEF2x2EcQyEosMFUZr12E4kNnNZiHs7uEEuzNHd/s2M3HQieywkPRUFTAw=="/>
                 <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.4-1.2.0.delta" sparkle:deltaFrom="1.2.0" length="30154" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="rJm/PGf1Jr1iRGH5nxiB6eoxZ+LSFsi9NjJ3q/Vbb+aopvkIxjdglc6DSe0dllk462hUhojwFSnzhqFMazWoDA=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>1.2.3</title>
-            <pubDate>Fri, 09 Jun 2023 09:13:39 +0200</pubDate>
-            <sparkle:version>1.2.3</sparkle:version>
-            <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy-1.2.3.dmg" length="1170708" type="application/octet-stream" sparkle:edSignature="mXHZyMdBclKWD+amei6iJCRhs404YWGPGYnSFP0l6J9u+ByQJXuvKf0d56Wvxfe8+PwoTJ9htPnGC1DAUsTaBQ=="/>
-            <sparkle:deltas>
-                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.3-1.2.1.delta" sparkle:deltaFrom="1.2.1" length="12722" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="DzbEogVVGSBf67sMw2hJ3aP30tNZ8VY3kcMYmM8iN3X8U50TEUQHfX7EYw0ryktCSQsZ972vjkgAtmuXwm21Cw=="/>
-                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.3-1.2.0.delta" sparkle:deltaFrom="1.2.0" length="12030" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="EwoKxmV/tp46PmmGJg4VY7Ak203cJnkxVLWFRpfnuaXw8HnJCVPGrhtb712FWptM0XnF3JYnRnHx9ariLJGKCw=="/>
             </sparkle:deltas>
         </item>
     </channel>
