@@ -27,7 +27,7 @@ struct PoppyApp: App {
                     .tabItem {
                         Label("Updates", systemImage: "arrow.clockwise")
                     }
-
+                
             }
             .padding()
             .frame(width: 500, height: 200)
@@ -78,12 +78,12 @@ struct PoppyApp: App {
                                        width: 100,
                                        height: 100),
                                 display: true)
-
+                
                 window.level = NSWindow.Level.floating
                 window.standardWindowButton(.zoomButton)?.isHidden = true
                 window.standardWindowButton(.closeButton)?.isHidden = true
                 window.standardWindowButton(.miniaturizeButton)?.isHidden = true
-
+                
             } else {
                 // Reset to default
                 window.setFrame(NSRect(x: (NSScreen.main?.frame.width ?? 500) - (NSScreen.main?.frame.width ?? 500) / 2,
@@ -91,7 +91,7 @@ struct PoppyApp: App {
                                        width: (NSScreen.main?.frame.width ?? 500) / 2,
                                        height: (NSScreen.main?.frame.height ?? 500)),
                                 display: true)
-
+                
                 window.standardWindowButton(.zoomButton)?.isHidden = false
                 window.standardWindowButton(.closeButton)?.isHidden = false
                 window.standardWindowButton(.miniaturizeButton)?.isHidden = false
@@ -134,10 +134,6 @@ struct CheckForUpdatesView: View {
     }
 }
 
-// This is the view for our updater settings
-// It manages local state for checking for updates and automatically downloading updates
-// Upon user changes to these, the updater's properties are set. These are backed by NSUserDefaults.
-// Note the updater properties should *only* be set when the user changes the state.
 struct UpdaterSettingsView: View {
     private let updater: SPUUpdater
     
@@ -152,6 +148,8 @@ struct UpdaterSettingsView: View {
     
     var body: some View {
         VStack {
+            AboutSettingsView()
+            
             Toggle("Automatically check for updates", isOn: $automaticallyChecksForUpdates)
                 .onChange(of: automaticallyChecksForUpdates) { newValue in
                     updater.automaticallyChecksForUpdates = newValue
