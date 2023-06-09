@@ -2,7 +2,7 @@
 
 set -e
 
-echo -n "SparkleUpdateTest-$VERSION.dmg: "
+echo -n "What's the version number: "
 read VERSION
 
 # appdmg ./appdmg.json ./Archive/SparkleUpdateTest-$VERSION.dmg
