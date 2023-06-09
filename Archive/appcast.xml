@@ -11,7 +11,6 @@
             <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy-1.2.1.dmg" length="1170693" type="application/octet-stream" sparkle:edSignature="18R7p0NovHP/lYiKciBiGhKaQOo8bQxEb/tHGfc9Jl0L6dFVDkLer1wCjmTp6pMjNigCoc0mM7Mzo9kg4d6JAg=="/>
             <sparkle:deltas>
                 <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.1-1.2.0.delta" sparkle:deltaFrom="1.2.0" length="12714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="8HgPgyeRBiYwDNim0y3zbCHv5g/BTUQgIpc97OiJUYaNkoY99BwfEVnA/yQtsWJHUqOWooiZJGxtH3wgRfFNDQ=="/>
-                <enclosure url="https://raw.githubusercontent.com/akaalias/Poppy/main/Archive/Poppy1.2.1-1.2.0.delta" sparkle:deltaFrom="1.2.0" length="12714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="8HgPgyeRBiYwDNim0y3zbCHv5g/BTUQgIpc97OiJUYaNkoY99BwfEVnA/yQtsWJHUqOWooiZJGxtH3wgRfFNDQ=="/>
             </sparkle:deltas>
         </item>
         <item>
