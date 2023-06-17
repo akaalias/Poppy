@@ -51,7 +51,7 @@ struct WebView: NSViewRepresentable {
     
     func updateNSView(_ nsView: WKWebView, context: Context) {
     }
-    
+        
     func makeCoordinator() -> Coordinator {
         Coordinator(store: webView.navigationDelegate as? WebViewStore)
     }
