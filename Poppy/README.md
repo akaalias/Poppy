@@ -1,9 +1,9 @@
 ## TODO
 
 ## DOING
-- Update icon
 
 ## DONE
+- Update icon
 
 ## ICEBOX
 - Publish demo video
