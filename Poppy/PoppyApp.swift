@@ -32,6 +32,12 @@ struct PoppyApp: App {
                     .tabItem {
                         Label("Updates", systemImage: "gift")
                     }                
+
+                ResetSettingsView()
+                    .tabItem {
+                        Label("Reset", systemImage: "arrow.clockwise")
+                    }
+
             }
             .padding()
             .frame(width: 600, height: 250)

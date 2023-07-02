@@ -72,7 +72,7 @@ struct WebView: NSViewRepresentable {
 let DEFAULT_HTML_STRING = """
 <style>
     * {
-        background-color: #efefef;
+        background-color: #fff;
         color: #444;
         font-family: "Helvetica Neue";
         margin: 0px;
@@ -104,7 +104,7 @@ let DEFAULT_HTML_STRING = """
 
     .highlight {
         padding: 8px;
-        background-color: yellow;
+        background-color: lightyellow;
         border-radius: 8px;
     }
     
@@ -112,13 +112,37 @@ let DEFAULT_HTML_STRING = """
         font-size: 28px;
     }
 
+    .subheadline {
+        font-size: 24px;
+        line-height: 140%;
+    }
+
     img#appIcon {
-        width: 200px;
-        height: 200px;
+        width: 128px;
+        height: 128px;
     }
 
     h1, h2, h3, p {
+        padding: 4px;
+    }
+
+    code {
+        margin: 8px;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: #efefef;
+        border: 1px solid #ccc;
+    }
+
+    span.key {
+        border-radius: 8px;
+        background-color: #111;
+        color: white;
         padding: 8px;
+    }
+
+    .special {
+        background-color: #333 !important;
     }
 
 
@@ -133,17 +157,32 @@ let DEFAULT_HTML_STRING = """
     </div>
     <div class="centered">
             <div class="content">
-                <img id="appIcon" src="https://github.com/akaalias/Poppy/blob/main/Icon-1024.png?raw=true"/>
+                <img id="appIcon" src="https://github.com/akaalias/Poppy/blob/main/Icon-265.png?raw=true"/>
+
                 <h1>Welcome to Poppy!</h1>
-                <p>Keep your single most important bookmark on top of everything else.</p>
+
+                <p class="subheadline">Keep your single most important bookmark on top of everything else.</p>
+
+                <br/>
+                <br/>
+
+                <h3>Hot Tip 1: Briefly Swipe Away</h3>
+                <p>I usually have Poppy to the right side of my screen. And sometimes it's on top of something that I want to see. To briefly swipe it away, I use this:</p>
 
                 <br/>
 
-                <p>
-                Poppy has two customizable Hotkeys that you should know about:</p>
+                <p><code><span class="key">Control</span> + <span class="key">Option</span> + <span class="key">Command</span> + <span class="key special">O</span></code></p>
 
-                <h3>Briefly Hide Poppy: <code>Control-Option-Command-O</code></h3>
-                <p>If you want to check what's behind Poppy's window but want to keep it on-top, try this hotkey!</p>
+                <br/>
+                <br/>
+
+                <h3>Hot Tip 2: Pin and Unpin</h3>
+                <p>By default, Poppy is always on top. It's kind of its raison d'etre. But sometimes, when I really don't need Poppy, I use this hotkey to unpin it from the top.</p>
+
+                <br/>
+
+                <p><code><span class="key">Control</span> + <span class="key">Option</span> + <span class="key">Command</span> + <span class="key special">P</span></code></p>
+
             </div>
     </div>
 </body>
