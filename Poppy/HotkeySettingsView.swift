@@ -12,20 +12,8 @@ struct HotkeySettingsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Toggle Window Pinning")
-                .font(.title)
-            
-            Text("When you really don't need Poppy, use this hotkey to move Poppy to the back.")
-                .multilineTextAlignment(.leading)
-                .font(.body)
-                .opacity(0.7)
-            
-            KeyboardShortcuts.Recorder("", name: .togglePinningShortcut)
-
-            Divider()
-
             Text("Briefly Hide Poppy")
-                .font(.title)
+                .font(.title3)
             
             Text("If you want to check what's behind Poppy's window but want to keep it on-top, try this hotkey!")
                 .multilineTextAlignment(.leading)
@@ -33,6 +21,18 @@ struct HotkeySettingsView: View {
                 .opacity(0.7)
             
             KeyboardShortcuts.Recorder("", name: .toggleAlphaShortcut)
+
+            Divider()
+            
+            Text("Toggle Window Pinning")
+                .font(.title3)
+            
+            Text("When you really don't need Poppy, use this hotkey to move Poppy to the back.")
+                .multilineTextAlignment(.leading)
+                .font(.body)
+                .opacity(0.7)
+            
+            KeyboardShortcuts.Recorder("", name: .togglePinningShortcut)
         }
     }
 }

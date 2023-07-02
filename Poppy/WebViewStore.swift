@@ -117,6 +117,10 @@ let DEFAULT_HTML_STRING = """
         height: 200px;
     }
 
+    h1, h2, h3, p {
+        padding: 8px;
+    }
+
 
 </style>
 
@@ -132,6 +136,14 @@ let DEFAULT_HTML_STRING = """
                 <img id="appIcon" src="https://github.com/akaalias/Poppy/blob/main/Icon-1024.png?raw=true"/>
                 <h1>Welcome to Poppy!</h1>
                 <p>Keep your single most important bookmark on top of everything else.</p>
+
+                <br/>
+
+                <p>
+                Poppy has two customizable Hotkeys that you should know about:</p>
+
+                <h3>Briefly Hide Poppy: <code>Control-Option-Command-O</code></h3>
+                <p>If you want to check what's behind Poppy's window but want to keep it on-top, try this hotkey!</p>
             </div>
     </div>
 </body>
