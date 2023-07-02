@@ -72,8 +72,8 @@ struct WebView: NSViewRepresentable {
 let DEFAULT_HTML_STRING = """
 <style>
     * {
-        background-color: maroon;
-        color: white;
+        background-color: #efefef;
+        color: #444;
         font-family: "Helvetica Neue";
         margin: 0px;
         padding: 0px;
@@ -104,7 +104,7 @@ let DEFAULT_HTML_STRING = """
 
     .highlight {
         padding: 8px;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: yellow;
         border-radius: 8px;
     }
     
@@ -112,21 +112,24 @@ let DEFAULT_HTML_STRING = """
         font-size: 28px;
     }
 
+    img#appIcon {
+        width: 200px;
+        height: 200px;
+    }
+
+
 </style>
 
 <body>
     <div class="top">
         <p>
             <span class="big">↑</span>
-            <div class="highlight">Enter your URL here!</div>
+            <div class="highlight">Enter your URL here</div>
         </p>
     </div>
     <div class="centered">
             <div class="content">
-                <div id="demo">
-                    DEMO
-                </div>
-
+                <img id="appIcon" src="https://github.com/akaalias/Poppy/blob/main/Icon-1024.png?raw=true"/>
                 <h1>Welcome to Poppy!</h1>
                 <p>Keep your single most important bookmark on top of everything else.</p>
             </div>

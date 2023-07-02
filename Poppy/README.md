@@ -1,4 +1,5 @@
 ## TODO
+- Publish demo video
 
 ## DOING
 
@@ -6,5 +7,7 @@
 - Update icon
 
 ## ICEBOX
-- Publish demo video
+- Publish on App Store
+- Update with Dashboard Example
+- Markdown Scratchpad
 - Settings for show/hide global hotkey

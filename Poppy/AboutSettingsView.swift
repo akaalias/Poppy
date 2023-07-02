@@ -10,6 +10,11 @@ import SwiftUI
 struct AboutSettingsView: View {
     var body: some View {
         VStack {
+            Image(nsImage: NSImage(named: "AppIcon")!)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 64, height: 64)
+            
             Text("Release Version: \(Bundle.main.releaseVersionNumber!)")
             Text("Build Version: \(Bundle.main.buildVersionNumber!)")
         }

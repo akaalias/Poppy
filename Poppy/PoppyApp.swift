@@ -15,7 +15,7 @@ struct PoppyApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var state = AppState.shared
-        
+    
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     }
@@ -30,16 +30,11 @@ struct PoppyApp: App {
                 
                 UpdaterSettingsView(updater: updaterController.updater)
                     .tabItem {
-                        Label("Updates", systemImage: "arrow.clockwise")
-                    }
-                ResetSettingsView()
-                    .tabItem {
-                        Label("Reset", systemImage: "arrow.clockwise")
-                    }
-                
+                        Label("Updates", systemImage: "gift")
+                    }                
             }
             .padding()
-            .frame(width: 500, height: 200)
+            .frame(width: 600, height: 250)
         }
         
         Window("Poppy", id: "poppy") {
